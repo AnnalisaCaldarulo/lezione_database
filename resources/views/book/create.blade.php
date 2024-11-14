@@ -1,17 +1,17 @@
 <x-layout>
-    <div class="container-fluid bg-homepage vh-100">
+    <div class="container-fluid min-vh-100">
         <div class="row justify-content-center">
             <div class="col-12">
-                <div class="h1 text-center display-4 py-5">
+                <h1 class="text-center display-4 py-5 text-shadow">
                     Inserisci un libro nel database!
-                </div>
+                </h1>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-6">
-                <form action="{{route('book.store')}}" method="POST" class="p-5 rounded shadow bg-white">
+        <div class="row justify-content-center pb-5">
+            <div class="col-12 col-md-6 ">
+                <form action="{{ route('book.store') }}" method="POST" class="p-5 rounded shadow bg-white">
                     @csrf
-                    {{-- cross site references forgery --}}
+                    {{-- cross site request forgery --}}
                     {{-- title, plot, price, pages --}}
                     <div class="mb-3">
                         <label for="title" class="form-label">Titolo</label>
@@ -29,7 +29,9 @@
                         <label for="pages" class="form-label">Numero di pagine</label>
                         <input type="number" class="form-control" id="pages" name="pages">
                     </div>
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
                 </form>
             </div>
         </div>

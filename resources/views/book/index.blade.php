@@ -1,18 +1,25 @@
 <x-layout>
-    <div class="container-fluid bg-homepage vh-100">
+    <div class="container vh-100">
         <div class="row justify-content-center">
             <div class="col-12">
-                <div class="h1 text-center display-4 py-5">
+                <h1 class=" text-shadow display-4 py-5">
                     Tutti i libri
-                </div>
+                </h1>
             </div>
         </div>
         <div class="row justify-content-center">
             {{-- @dump($books) --}}
             @foreach($books as $book)
-            <div class="col-12 col-md-3">
-                <div class="card p-3 bg-warning rounded">
-                    {{$book->title}}
+            <div class="col-12 col-md-3 mb-5 d-flex justify-content-center">
+                <div class="card shadow" style="width: 18rem;">
+                    <img src="https://picsum.photos/{{ 300 + $book->id }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{$book->title}}</h5>
+                        <p class="card-text text-truncate"> {{$book->plot}} </p>    
+                        <div class="text-center">
+                            <a href="" class="btn btn-outline-success">Vai al dettaglio</a>
+                        </div>                            
+                    </div>
                 </div>
             </div>
             @endforeach

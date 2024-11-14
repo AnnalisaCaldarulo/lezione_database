@@ -10,7 +10,7 @@
     {{-- mai mettere il ; finale, sennò non funziona! --}}
 </head>
 
-<body>
+<body class="bg-custom">
     {{-- alt + shif + F dopo aver selezionato tutto il codice --}}
 
     <x-navbar/>

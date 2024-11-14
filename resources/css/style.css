@@ -1,0 +1,11 @@
+.bg-homepage{
+    background: linear-gradient(45deg, #4ed3e8, #5938, #543454);
+}
+
+.bg-chiSiamo{
+    background: linear-gradient(45deg, #e8964e, rgba(224, 206, 13, 0.533), #0f54c4);
+}
+
+.bg-doveAndiamo{
+    background: linear-gradient(45deg, #e84ece, rgba(3, 245, 213, 0.533), #e73149);
+}

@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="container vh-100">
+    <div class="container min-vh-100">
         <div class="row justify-content-center">
             <div class="col-12">
                 <h1 class=" text-shadow display-4 py-5">

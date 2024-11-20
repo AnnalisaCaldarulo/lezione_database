@@ -13,7 +13,8 @@ class Book extends Model
         'title', 
         'plot', 
         'price', 
-        'pages'
+        'pages',
+        'cover'
     ];
 
 }

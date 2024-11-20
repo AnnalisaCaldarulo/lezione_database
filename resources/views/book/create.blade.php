@@ -9,25 +9,70 @@
         </div>
         <div class="row justify-content-center pb-5">
             <div class="col-12 col-md-6 ">
-                <form action="{{ route('book.store') }}" method="POST" class="p-5 rounded shadow bg-white">
+                {{-- !specificare al form: GUARDA CHE ACCETTI PIU' TIPI DI DATO, PIU' FORMATI --}}
+                <form action="{{ route('book.store') }}" method="POST" class="p-5 rounded shadow bg-white"
+                    enctype="multipart/form-data">
+                    {{-- @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif --}}
                     @csrf
                     {{-- cross site request forgery --}}
                     {{-- title, plot, price, pages --}}
                     <div class="mb-3">
                         <label for="title" class="form-label">Titolo</label>
-                        <input type="text" class="form-control" id="title" name="title">
+                        <input type="text" class="form-control @error('title') is-invalid @enderror " id="title"
+                            name="title" value="{{ old('title') }}">
+                        @error('title')
+                            <p class="fst-italic text-danger">
+                                {{ $message }}
+                            </p>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="plot" class="form-label">Trama</label>
-                        <textarea name="plot" id="plot" class="form-control" cols="30" rows="10"></textarea>
+                        <textarea name="plot" id="plot" class="form-control @error('plot') is-invalid @enderror" cols="30"
+                            rows="10">{{ old('plot') }}</textarea>
+                        @error('plot')
+                            <p class="fst-italic text-danger">
+                                {{ $message }}
+                            </p>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="price" class="form-label">Prezzo</label>
-                        <input type="text" class="form-control" id="price" name="price">
+                        <input type="text" class="form-control @error('price') is-invalid @enderror" id="price"
+                            name="price" value="{{ old('price') }}">
+                        @error('price')
+                            <p class="fst-italic text-danger">
+                                {{ $message }}
+                            </p>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="pages" class="form-label">Numero di pagine</label>
-                        <input type="number" class="form-control" id="pages" name="pages">
+                        <input type="number" class="form-control @error('pages') is-invalid @enderror" id="pages"
+                            name="pages" value="{{ old('pages') }}">
+                        @error('pages')
+                            <p class="fst-italic text-danger">
+                                {{ $message }}
+                            </p>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="cover" class="form-label">Immagine di copertina</label>
+                        <input type="file" class="form-control @error('cover') is-invalid @enderror" id="cover"
+                            name="cover">
+                        @error('cover')
+                            <p class="fst-italic text-danger">
+                                {{ $message }}
+                            </p>
+                        @enderror
                     </div>
                     <div class="text-center mt-4">
                         <button type="submit" class="btn btn-success">Submit</button>

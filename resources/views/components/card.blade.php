@@ -1,5 +1,10 @@
 <div class="card" style="width: 18rem;">
-    <img src="https://picsum.photos/{{ 300 + $id }}" class="card-img-top" alt="...">
+    @dd($book->cover)
+    @if(!$book->cover)
+    <img src="https://picsum.photos/{{ 300 + $id }}" class="card-img-top" alt="...">        
+    @else
+        <img src="{{$book->cover}}" alt=""  class="card-img-top" >
+    @endif
     <div class="card-body">
         <h5 class="card-title">{{ $name }} {!! $surname !!}</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk

@@ -29,7 +29,7 @@ class BookCreateRequest extends FormRequest
             'plot' => 'required|min:10|max:50',
             'price' => 'required|numeric',
             'pages' => 'required|integer',
-            'cover' => 'required|image'
+            'cover' => 'image'
         ];
     }
     // ! per forza messageS

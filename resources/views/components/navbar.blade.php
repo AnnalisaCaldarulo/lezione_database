@@ -16,14 +16,54 @@
                         href="{{ route('chiSiamo') }}">Chi Siamo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  {{ Route::currentRouteName() == 'doveAndiamo' ? 'active fw-bold' : '' }}" href="{{ route('doveAndiamo') }}">Dove Andiamo?</a>
+                    <a class="nav-link  {{ Route::currentRouteName() == 'doveAndiamo' ? 'active fw-bold' : '' }}"
+                        href="{{ route('doveAndiamo') }}">Dove Andiamo?</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  {{ Route::currentRouteName() == 'book.create' ? 'active fw-bold' : '' }}" href="{{ route('book.create') }}">crea</a>
+                    <a class="nav-link  {{ Route::currentRouteName() == 'book.create' ? 'active fw-bold' : '' }}"
+                        href="{{ route('book.create') }}">crea</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  {{ Route::currentRouteName() == 'book.index' ? 'active fw-bold' : '' }}" href="{{ route('book.index') }}">Tutti i libri</a>
+                    <a class="nav-link  {{ Route::currentRouteName() == 'book.index' ? 'active fw-bold' : '' }}"
+                        href="{{ route('book.index') }}">Tutti i libri</a>
                 </li>
+                {{-- @auth --}}
+                {{-- @guest --}}
+
+                {{-- @if (!Auth::user()) --}}
+                @guest
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Autenticazione
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ route('login') }}">Login</a></li>
+                            <li><a class="dropdown-item" href="{{ route('register') }}">Register</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    {{-- @endif --}}
+                @endguest
+                {{-- @if (Auth::user()) --}}
+                @auth
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Ciao, {{ Auth::user()->name }} !
+                        </a>
+                        {{-- $user --}}
+                        {{-- @dump(Auth::user()->name) --}}
+                        <ul class="dropdown-menu">
+                            {{-- <li><a class="dropdown-item" href="#">Something else here</a></li> --}}
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="dropdown-item">logout</button>
+                            </form>
+                        </ul>
+                    </li>
+                    {{-- @endif --}}
+                @endauth
             </ul>
         </div>
     </div>

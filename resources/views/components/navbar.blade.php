@@ -27,6 +27,14 @@
                     <a class="nav-link  {{ Route::currentRouteName() == 'book.index' ? 'active fw-bold' : '' }}"
                         href="{{ route('book.index') }}">Tutti i libri</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link  {{ Route::currentRouteName() == 'author.create' ? 'active fw-bold' : '' }}"
+                        href="{{ route('author.create') }}">crea un autore</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  {{ Route::currentRouteName() == 'author.index' ? 'active fw-bold' : '' }}"
+                        href="{{ route('author.index') }}">Tutti gli autori</a>
+                </li>
                 {{-- @auth --}}
                 {{-- @guest --}}
 

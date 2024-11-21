@@ -9,3 +9,10 @@ down - migrate:rollback
 
 - BookController - metodo SICURO Book::create();
 - per recuperare il dato: Book::all();
+
+
+CRUD:
+CREATE
+READ 
+UPDATE
+DELETE

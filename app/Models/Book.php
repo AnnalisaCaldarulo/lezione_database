@@ -16,6 +16,17 @@ class Book extends Model
         'pages',
         'cover'
     ];
+    //! FUNZIONE DI RELAZIONE - ONE TO ONE
+    // = UN LIBRO APPARTIENE A UN SOLO UTENTE
+    // FUNZIONE PER RECUPERARE QUELL'UTENTE
+
+    public function user() //singolare
+    {
+        return $this->belongsTo(User::class);
+        //$this - il singolo oggetto di classe Book
+        // belongs to - appartiene a
+        // User::class - un oggetto di classe User
+    }
 
 }
 

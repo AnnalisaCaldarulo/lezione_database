@@ -17,7 +17,7 @@ Route::get('/dove-andiamo', [PublicController::class, 'doveAndiamo'])->name('dov
 Route::get('/chi-siamo/dettaglio/{id}', [StudentController::class, 'detailStudent'])->name('dettaglioStudente');
 
 // books
-Route::get('/crea-un-libro', [BookController::class, 'create'])->name('book.create');
+Route::get('/crea-un-libro', [BookController::class, 'create'])->middleware('auth')->name('book.create');
 Route::post('/book/submit', [BookController::class, 'store'])->name('book.store');
 Route::get('/tutti-i-libri', [BookController::class, 'index'])->name('book.index');
 

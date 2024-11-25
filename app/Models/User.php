@@ -23,6 +23,20 @@ class User extends Authenticatable
         'password',
     ];
 
+    // ! FUNZIONE DI RELAZIONE - ONE TO MANY
+    // = UN USER HA TANTI LIBRI
+    // FUNZIONE SERVE A RECUPERARE LA COLLEZIONE DI LIBRI CREATI DAL SINGOLO UTENTE
+
+    public function books() //nome del modello relazionato AL PLURALE
+    {
+        return $this->hasMany(Book::class);
+        //return 
+        // $this - IL SINGOLO UTENTE ($user)
+        // has many - 'ha molti' -> collezione di oggetti collegati
+        //Book - oggetti di classe Book
+        //! = ritorna la collezione di libri relazionati a questo utente 
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

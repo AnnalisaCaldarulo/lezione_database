@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\BookCreateRequest;
@@ -12,6 +13,15 @@ class BookController extends Controller
     public function create()
     {
         return view('book.create');
+    }
+
+    public function byUser(User $user){
+
+        // return view('book.byUser', compact('user'));
+
+        $books = $user->books;
+        return view('book.byUser', compact('books', 'user'));
+
     }
 
     public function index()

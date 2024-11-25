@@ -9,12 +9,19 @@ use Illuminate\Auth\Middleware\Authenticate;
 
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 
+// rotte di Valerio:
 Route::get('/chi-siamo', [StudentController::class, 'students'])->name('chiSiamo');
-
 Route::get('/dove-andiamo', [PublicController::class, 'doveAndiamo'])->name('doveAndiamo');
-
 // rotta parametrica
 Route::get('/chi-siamo/dettaglio/{id}', [StudentController::class, 'detailStudent'])->name('dettaglioStudente');
+
+
+
+
+// !DATABASE
+//!tutti gli utenti del sito
+Route::get('/user/index', [PublicController::class, 'index'])->name('user.index');
+Route::get('/book/by-user/{user}', [BookController::class, 'byUser'])->name('book.byUser');
 
 // books
 Route::get('/crea-un-libro', [BookController::class, 'create'])->middleware('auth')->name('book.create');

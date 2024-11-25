@@ -35,6 +35,10 @@
                     <a class="nav-link  {{ Route::currentRouteName() == 'author.index' ? 'active fw-bold' : '' }}"
                         href="{{ route('author.index') }}">Tutti gli autori</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link  {{ Route::currentRouteName() == 'user.index' ? 'active fw-bold' : '' }}"
+                        href="{{ route('user.index') }}">Tutti gli utenti</a>
+                </li>
                 {{-- @auth --}}
                 {{-- @guest --}}
 

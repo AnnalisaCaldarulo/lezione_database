@@ -6,43 +6,43 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link {{ Route::currentRouteName() == 'homepage' ? 'active fw-bold' : '' }}"
                         aria-current="page" href="{{ route('homepage') }}">Welcome</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ Route::currentRouteName() == 'chiSiamo' ? 'active fw-bold' : '' }}"
-                        href="{{ route('chiSiamo') }}">Chi Siamo</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Libri
+                    </a>
+                    <ul class="dropdown-menu">
+                        @auth
+                            <li><a class="dropdown-item {{ Route::currentRouteName() == 'book.create' ? 'active fw-bold' : '' }}"
+                                    href="{{ route('book.create') }}">Crea</a></li>
+                        @endauth
+                        <li><a class="dropdown-item   {{ Route::currentRouteName() == 'book.index' ? 'active fw-bold' : '' }}"
+                                href="{{ route('book.index') }}">Tutti i libri</a></li>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link  {{ Route::currentRouteName() == 'doveAndiamo' ? 'active fw-bold' : '' }}"
-                        href="{{ route('doveAndiamo') }}">Dove Andiamo?</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link  {{ Route::currentRouteName() == 'book.create' ? 'active fw-bold' : '' }}"
-                        href="{{ route('book.create') }}">crea</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link  {{ Route::currentRouteName() == 'book.index' ? 'active fw-bold' : '' }}"
-                        href="{{ route('book.index') }}">Tutti i libri</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link  {{ Route::currentRouteName() == 'author.create' ? 'active fw-bold' : '' }}"
-                        href="{{ route('author.create') }}">crea un autore</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link  {{ Route::currentRouteName() == 'author.index' ? 'active fw-bold' : '' }}"
-                        href="{{ route('author.index') }}">Tutti gli autori</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Autori
+                    </a>
+                    <ul class="dropdown-menu">
+                        @auth
+                            <li><a class="dropdown-item {{ Route::currentRouteName() == 'author.create' ? 'active fw-bold' : '' }}"
+                                    href="{{ route('author.create') }}">Crea</a></li>
+                        @endauth
+                        <li><a class="dropdown-item   {{ Route::currentRouteName() == 'author.index' ? 'active fw-bold' : '' }}"
+                                href="{{ route('author.index') }}">Tutti i libri</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link  {{ Route::currentRouteName() == 'user.index' ? 'active fw-bold' : '' }}"
                         href="{{ route('user.index') }}">Tutti gli utenti</a>
                 </li>
-                {{-- @auth --}}
-                {{-- @guest --}}
-
-                {{-- @if (!Auth::user()) --}}
                 @guest
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -71,7 +71,7 @@
                                 @csrf
                                 <button type="submit" class="dropdown-item">logout</button>
                             </form>
-                            <li><a class="dropdown-item" href="{{route('profile')}}">Profilo</a></li>
+                            <li><a class="dropdown-item" href="{{ route('profile') }}">Profilo</a></li>
                         </ul>
                     </li>
                     {{-- @endif --}}

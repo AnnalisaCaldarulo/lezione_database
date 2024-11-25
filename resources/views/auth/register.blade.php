@@ -1,5 +1,5 @@
 <x-layout>
-   
+
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -10,7 +10,16 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-12 col-md-6">
- {{-- form
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                {{-- form
     richiesta POST method
     action /register
     input: name, email, password, password_confirmation 
@@ -31,7 +40,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="password_confirmation" class="form-label">Conferma password:</label>
-                        <input type="password" class="form-control" name="password_confirmation" id="password_confirmation">
+                        <input type="password" class="form-control" name="password_confirmation"
+                            id="password_confirmation">
                     </div>
                     <div class="mb-3 text-center">
                         <button class="btn btn-outline-success" type="submit">

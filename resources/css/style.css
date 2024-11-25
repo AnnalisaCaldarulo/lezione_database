@@ -10,11 +10,50 @@
     background: linear-gradient(45deg, #e84ece, rgba(3, 245, 213, 0.533), #e73149);
 } */
 
+
 .bg-custom {
     background: linear-gradient(159deg, rgba(62, 180, 137, 0.7) 0%, rgba(144, 238, 144, 0.7) 100%);
 }
 
-.text-shadow{
+.text-shadow {
     text-shadow: 2px 2px rgb(41, 59, 45);
     color: white;
+}
+
+
+
+.btn-card {
+    background-color: #83d3ad;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    text-shadow: 1px 1px rgb(41, 59, 45);
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: relative;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.img-card {
+    height: 350px;
+    width: 18rem;
+    object-fit: cover;
+}
+
+.card {
+    border: none;
+    height: 570px;
+}
+
+.card-body {
+    position: relative;
+}
+
+.btn-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }

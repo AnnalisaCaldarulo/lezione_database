@@ -14,7 +14,8 @@ class Book extends Model
         'plot', 
         'price', 
         'pages',
-        'cover'
+        'cover',
+        'user_id'
     ];
     //! FUNZIONE DI RELAZIONE - ONE TO ONE
     // = UN LIBRO APPARTIENE A UN SOLO UTENTE

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\BookCreateRequest;
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\BookCreateRequest;
 
 class BookController extends Controller
 {
@@ -38,6 +39,7 @@ class BookController extends Controller
             //! ternario: se c'è l'immagine salvala altrimenti metti NULL
             // $request->has('cover') ? $request->file('cover')->store('covers', 'public') : NULL
             'cover' => $image,
+            'user_id'=> Auth::user()->id
         ]);
 
 

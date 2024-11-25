@@ -17,6 +17,12 @@ class PublicController extends Controller
         return view('doveAndiamo');
     }
 
+    public function profile()
+    {
+        return view('user.profile');
+    }
+
+
     public function index()
     {
         $users = User::all();

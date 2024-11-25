@@ -18,8 +18,8 @@ class BookController extends Controller
     public function byUser(User $user){
 
         // return view('book.byUser', compact('user'));
-
-        $books = $user->books;
+        $books = Book::where('user_id', '=', $user->id)->orderBy('title', 'asc')->get();
+        // $books = $user->books;
         return view('book.byUser', compact('books', 'user'));
 
     }

@@ -21,6 +21,7 @@ Route::get('/chi-siamo/dettaglio/{id}', [StudentController::class, 'detailStuden
 // !DATABASE
 //!tutti gli utenti del sito
 Route::get('/user/index', [PublicController::class, 'index'])->name('user.index');
+Route::get('/profile', [PublicController::class, 'profile'])->middleware('auth')->name('profile');
 Route::get('/book/by-user/{user}', [BookController::class, 'byUser'])->name('book.byUser');
 
 // books

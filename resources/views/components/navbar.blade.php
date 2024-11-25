@@ -52,7 +52,6 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('login') }}">Login</a></li>
                             <li><a class="dropdown-item" href="{{ route('register') }}">Register</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
                     </li>
                     {{-- @endif --}}
@@ -72,6 +71,7 @@
                                 @csrf
                                 <button type="submit" class="dropdown-item">logout</button>
                             </form>
+                            <li><a class="dropdown-item" href="{{route('profile')}}">Profilo</a></li>
                         </ul>
                     </li>
                     {{-- @endif --}}

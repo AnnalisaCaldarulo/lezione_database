@@ -29,6 +29,9 @@ Route::delete('/user/destroy/{user}', [PublicController::class, 'destroy'])->nam
 Route::get('/crea-un-libro', [BookController::class, 'create'])->middleware('auth')->name('book.create');
 Route::post('/book/submit', [BookController::class, 'store'])->name('book.store');
 Route::get('/tutti-i-libri', [BookController::class, 'index'])->name('book.index');
+Route::get('/book/edit/{book}', [BookController::class, 'edit'])->name('book.edit');
+Route::put('/book/update/{book}', [BookController::class, 'update'])->name('book.update');
+Route::delete('/book/destroy/{book}', [BookController::class, 'destroy'])->name('book.destroy');
 
 // authors
 // !create

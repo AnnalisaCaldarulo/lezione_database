@@ -29,5 +29,11 @@ class Book extends Model
         // User::class - un oggetto di classe User
     }
 
+    //! funzione di relazione con le categorie: devo recuperare tutte le categorie del singolo libro
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
+
 }
 

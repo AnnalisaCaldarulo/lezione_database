@@ -10,5 +10,10 @@
             {{ session('success') }}
         </div>
     @endif
+    @if (session('goodbye'))
+    <div class="alert alert-info">
+        {{ session('goodbye') }}
+    </div>
+@endif
     <x-header titleHeader="Benvenuti a Valerioland" />
 </x-layout>

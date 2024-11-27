@@ -23,6 +23,7 @@ Route::get('/chi-siamo/dettaglio/{id}', [StudentController::class, 'detailStuden
 Route::get('/user/index', [PublicController::class, 'index'])->name('user.index');
 Route::get('/profile', [PublicController::class, 'profile'])->middleware('auth')->name('profile');
 Route::get('/book/by-user/{user}', [BookController::class, 'byUser'])->name('book.byUser');
+Route::delete('/user/destroy/{user}', [PublicController::class, 'destroy'])->name('user.destroy');
 
 // books
 Route::get('/crea-un-libro', [BookController::class, 'create'])->middleware('auth')->name('book.create');

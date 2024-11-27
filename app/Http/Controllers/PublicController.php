@@ -28,4 +28,21 @@ class PublicController extends Controller
         $users = User::all();
         return view('user.index', compact('users'));
     }
+
+    public function destroy(User $user)
+    {
+        // dd($user);
+        //! vincolo di integrita' referenziale: prima di cancellare l'utente, TOGLIERE il legame coi libri
+        // dd($user->books);
+        foreach ($user->books as $book) {
+            $book->update([
+                'user_id' => NULL
+            ]);
+            // $book->delete();
+        }
+
+        $user->delete();
+        // dd('controlla il db');
+        return redirect()->route('homepage')->with('goodbye', 'Ci dispiace vederti andare via :(');
+    }
 }
